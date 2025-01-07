@@ -13,11 +13,19 @@ terraform {
 	required_version = "
 
 #configuring the aws provider
-Provider "aws" {
-   region = "us-east-1"
+  provider "aws" {
+    region = "us-east-1"
 }
 
 #create ec2 instance
 
-resource "aws_instance" "app_server" {
-  ami         = "
+  resource "aws_instance" "app_server" {
+    ami           = "ami-830c94e3"
+    instance_type = "t2.micro"
+   
+     tags = {
+ 	Name = "Terraform_Demo"
+     }
+  }
+}
+
