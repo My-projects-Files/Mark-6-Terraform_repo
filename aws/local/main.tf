@@ -21,12 +21,16 @@ terraform {
 #create ec2 instance
 
   resource "aws_instance" "app_server" {
-    ami           = "ami-0e2c8caa4b6378d8c"
+    ami           = "${var.ami_var}"
     instance_type = "t2.micro"
    
      tags = {
  	Name = "Terraform_Demo"
      }
   }
+
+#to forward the state file to S3 with dynamic db lock
+
+
 
 
