@@ -9,7 +9,7 @@ terraform {
 
 
 ## to configure AWS connection ##
-Provider "aws" {}
+provider "aws" {}
 
 ## to create S3 buckets ##
 
