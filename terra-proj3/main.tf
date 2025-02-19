@@ -66,7 +66,7 @@ resource "aws_security_group" "rds_sg" {
 resource "aws_db_instance" "default" {
   		allocated_storage    = 10
   		engine               = "postgres"
-  		engine_version       = "13.15"
+  		engine_version       = "11.22"
   		instance_class       = "db.t2.micro"
   		db_name              = "mydb"
   		username             = "mydbusr"
