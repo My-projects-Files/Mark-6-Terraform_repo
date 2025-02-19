@@ -5,6 +5,9 @@ provider "aws" {
 # Create a VPC (if you don't already have one)
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "MainVPC"
+   }
 }
 
 # Create subnets in your VPC
@@ -13,6 +16,9 @@ resource "aws_subnet" "subnet_1" {
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
+  tags = {
+	Name = "subnet 1"
+	}
 }
 
 resource "aws_subnet" "subnet_2" {
@@ -20,6 +26,9 @@ resource "aws_subnet" "subnet_2" {
   cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
+  tags = {
+	Name = "subnet 2"
+	}
 }
 
 # Create a DB Subnet Group
@@ -39,7 +48,7 @@ resource "aws_security_group" "rds_sg" {
    			from_port   = 5432  # PostgreSQL port
    			to_port     = 5432  # PostgreSQL port
    			protocol    = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]  # Allow all IPs for simplicity, but you should restrict this in production
+        		cidr_blocks = ["0.0.0.0/0"]  # Allow all IPs for simplicity, but you should restrict this in production
   		}		
 
   		egress {
@@ -62,14 +71,17 @@ resource "aws_db_instance" "default" {
   		db_name              = "mydb"
   		username             = "mydbusr"
   		password             = "ad@123"
-  		db_subnet_group_name = "db_sub_group"
-  		parameter_group_name = "default.mysql5.6"
+  		db_subnet_group_name = aws_db_subnet_group.db_sub_group.name
+  		parameter_group_name = "default.postgres13"
+
+		vpc_security_group_ids = [aws_security_group.rds_sg.id]
 	
 		  tags = {
 			  name = "myRDSinstance"
 		}
 		
 		backup_retention_period = 7
+		multi_az = false
 }
 	
 output "rds_endpoint" {
