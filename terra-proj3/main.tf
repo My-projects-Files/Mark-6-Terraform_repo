@@ -65,14 +65,14 @@ resource "aws_security_group" "rds_sg" {
 	
 resource "aws_db_instance" "default" {
   		allocated_storage    = 10
-  		engine               = "postgres"
-  		engine_version       = "11.22"
+  		engine               = "mysql"
+  		engine_version       = "8.0.30"
   		instance_class       = "db.t2.micro"
   		db_name              = "mydb"
   		username             = "mydbusr"
   		password             = "ad@123"
   		db_subnet_group_name = aws_db_subnet_group.db_sub_group.name
-  		parameter_group_name = "default.postgres13"
+  		parameter_group_name = "default.mysql8.0"
 
 		vpc_security_group_ids = [aws_security_group.rds_sg.id]
 	
