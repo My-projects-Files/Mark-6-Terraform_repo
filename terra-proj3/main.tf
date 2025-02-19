@@ -66,7 +66,7 @@ resource "aws_security_group" "rds_sg" {
 resource "aws_db_instance" "default" {
   		allocated_storage    = 10
   		engine               = "mysql"
-  		engine_version       = "8.0.30"
+  		engine_version       = "8.0.34"
   		instance_class       = "db.t2.micro"
   		db_name              = "mydb"
   		username             = "mydbusr"
