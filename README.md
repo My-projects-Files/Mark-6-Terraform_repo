@@ -35,3 +35,10 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/inst
 
 https://developer.hashicorp.com/terraform/language/import
 ~~~
+
+# Project-3
+## Configure the RDS along with VPC and subnet
+
+We are configuring the vpc and subnets if we dont have them, then we are creating the db subnet group using which we are creating the DB instance.
+
+
