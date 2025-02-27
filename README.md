@@ -29,15 +29,15 @@ All the infrastructure will be managed using Terraform to ensure repeatability a
 
 Note: we need to create ssh keypair in aws, and make sure if you have proper region and relavent api mentioned.
 
-# reference doc
+## reference doc
 ~~~
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 
 https://developer.hashicorp.com/terraform/language/import
 ~~~
 
-# Project-3
-## Configure the RDS along with VPC and subnet
+## Project-3
+### Configure the RDS along with VPC and subnet
 
 We are configuring the vpc and subnets if we dont have them, then we are creating the db subnet group using which we are creating the DB instance.
 
