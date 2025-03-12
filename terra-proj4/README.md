@@ -25,7 +25,7 @@ https://registry.terraform.io/providers/conradludgate/spotify/0.2.7
 7. once done we can creart a playlist.tf to officialy create a playlist. the reference can be found in terraform registory documents from above link.
 
 
-## full project in terraform website
+## Full project in terraform website
 ~~~
 https://developer.hashicorp.com/terraform/tutorials/community-providers/spotify-playlist
 ~~~
