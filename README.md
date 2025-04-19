@@ -41,4 +41,29 @@ https://developer.hashicorp.com/terraform/language/import
 
 We are configuring the vpc and subnets if we dont have them, then we are creating the db subnet group using which we are creating the DB instance.
 
+## New state lock feature in terraform
+Old Setup – S3 + DynamoDB
 
+### Earlier, we had to use:
+
+S3 bucket to store the Terraform state file
+
+DynamoDB table to handle locking (to avoid two people making changes at the same time)
+
+### New Update – Native S3 Locking (Terraform 1.10+)
+
+Now with Terraform 1.10 and above, AWS S3 itself supports locking, no need for DynamoDB table.
+
+Just enable versioning in the S3 bucket and add one line in your Terraform backend config.
+
+~~~
+terraform {
+ backend "s3" {
+ bucket = "your-terraform-state-bucket"
+ key = "path/to/your/statefile.tfstate"
+ region = "ap-south-1"
+ encrypt = true
+ use_lockfile = true # This enables native locking
+ }
+}
+~~~
