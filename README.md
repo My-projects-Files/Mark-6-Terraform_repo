@@ -1,6 +1,17 @@
 # Mark-6
 This is to understand terraform
+## To update to latest veersion of terraform we need to install tfenv. we run this if the alredy installed and in old version.
+~~~
+# To install tfenv in linux
+git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
 
+# To update terraform to latest version
+tfenv install latest
+tfenv use latest
+~~~
+ 
 ## Project-1 
 we are creating a aws instance using terraform (local file),in this our state file is stored in locally
 So we have to store them remotely(remote file) which is a best practice. so we will create S3 bucket (to store the state file) and dynamicdb (state lock)
