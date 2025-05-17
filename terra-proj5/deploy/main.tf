@@ -12,13 +12,13 @@ terraform {
 
 provider "aws" {
 	region = "us-east-1"
-}
 
+}
 resource "aws_instance" "test_server"{
 	ami  = "ami-0953476d60561c955"
 	instance_type= "t2.micro"
 	tags = {
-		name= "EC2 with remote state and s3 statelock"
+		Name= "ec2_s3_statelock"
 	}
 }
 
