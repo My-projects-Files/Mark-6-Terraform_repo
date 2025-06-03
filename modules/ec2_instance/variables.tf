@@ -1,13 +1,13 @@
-variable "ami_id" { 
+variable "ami_id_val" { 
         description = "AMI id to use for the instance"
 }
 
-variable "instance_type" {
+variable "instance_type_val" {
         description = "the type of instance creat"
 }
 
-variable "demo" {
-        description = "ssh key pair name for instance"
+variable "sg_val" {
+	description = "the value of security group"
 }
 
 variable "tag_name" {
