@@ -5,6 +5,7 @@ provider "aws" {
 resource "aws_instance" "my_instance" {
         ami = var.ami_id_val  
         instance_type = var.instance_type_val
+	security_groups = var.sg_val
 
         tags = {
           Name = "var.tag_name"

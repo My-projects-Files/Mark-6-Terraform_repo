@@ -1,6 +1,6 @@
 variable "instance_type" {
 	description = "the type of instance creat"
-	default = "t3.nano"
+	default = "t3.micro"
 }
 
 variable "ami_id" {
@@ -11,4 +11,9 @@ variable "ami_id" {
 variable "demo" {
 	description = "ssh key pair name for instance"
 	default = "demo"
+}
+
+variable "tag_name" {
+	description = "name of the instance"
+	default = "myEC2insatnce"
 }
