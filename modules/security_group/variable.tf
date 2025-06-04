@@ -3,6 +3,11 @@ variable "sg_name" {
 	description = "name of the security group"
 }
 
+variable "des_val" {
+	default = "allow ssh access to EC2 instance"
+	description = "description of the security group"
+}
+
 variable "ing_from_val" {
 	type = number
 	default = 22
@@ -45,4 +50,9 @@ variable "egr_protocol_val" {
 variable "egr_cidr_val" {
 	default = ["0.0.0.0/0"]
 	description = "egress CIDR blocks"
+}
+
+variable "name" {
+	default = "secure_g"
+	description = "name tag for the resource"
 }

@@ -40,27 +40,16 @@ resource "aws_db_subnet_group" "db_sub_group" {
     Name = "db_sub_group"
   }
 }
-resource "aws_security_group" "rds_sg" {
- 		name        = "rds_security_group"
- 		description = "Allow inbound traffic to RDS from specific IPs"
+module "rds_sg" {
+	source = "../modules/security_group"
+	sg_name = "rds_security_group"
+	des_val = "Allow inbound traffic to RDS from specific IPs"
+	ing_from_val = 5432
+	ing_to_val = 5432
 
- 		ingress {
-   			from_port   = 5432  # PostgreSQL port
-   			to_port     = 5432  # PostgreSQL port
-   			protocol    = "tcp"
-        		cidr_blocks = ["0.0.0.0/0"]  # Allow all IPs for simplicity, but you should restrict this in production
-  		}		
-
-  		egress {
-    			from_port   = 0
-    			to_port     = 0
-    			protocol    = "-1"
-    			cidr_blocks = ["0.0.0.0/0"]
-  		}
-
-  		tags = {
-   		  Name = "RDS-SecurityGroup"
-  		}
+	tags = {
+   	  Name = "RDS-SecurityGroup"
+  	}
 }
 	
 resource "aws_db_instance" "default" {
