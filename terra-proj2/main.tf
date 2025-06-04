@@ -8,12 +8,12 @@ provider "aws" {
 }
 
 module "allow_ssh" {
-	source = "../modules/security_group"
-	ing_from_val = 22
-	ing_to_val= 22
-	ing_protocol_val="tcp"
-	ing_cidr_val= ["0.0.0.0/0"]
-	sg_name = "ssh_security_group"
+        source = "../modules/security_group"
+        ing_from_val = 22
+        ing_to_val= 22
+        ing_protocol_val="tcp"
+        ing_cidr_val= ["0.0.0.0/0"]
+        sg_name = "ssh_security_group"
 
 }
 
