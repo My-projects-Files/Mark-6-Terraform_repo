@@ -15,7 +15,5 @@ resource "aws_security_group" "allow_ssh" {
 	  cidr_blocks = var.ing_cidr_val
 	}
 	
-	tags = {
-		Name = var.name
-	}
+	tags = var.tags
 }
