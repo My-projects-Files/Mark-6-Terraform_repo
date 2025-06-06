@@ -52,7 +52,7 @@ variable "egr_cidr_val" {
 	description = "egress CIDR blocks"
 }
 
-variable "name" {
+variable "tags" {
 	default = "secure_g"
 	description = "name tag for the resource"
 }
