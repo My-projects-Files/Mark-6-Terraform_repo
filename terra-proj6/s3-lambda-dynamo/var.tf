@@ -16,3 +16,9 @@ variable "dynamo_arn" {
 	type = string
 	default = "arn:aws:dynamodb:us-east-1:906502061897:table/json-data-format"
 }
+
+variable "aws_region" {
+	description = "this is region details of the resource in aws"
+	type = string
+	default = "us-east-1"
+}
