@@ -1,5 +1,18 @@
-variable "s3_bucket_name" {
-	description = "s3 bucket name"
+variable "lambda_basic_arn" {
+	description = " this is the arn for the basic lambda role"
 	type = string
-	default = "my-terra-data-upload"
+	default = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+
+}
+
+variable "s3_arn" {
+	description = "This is the arn for the created s3 bucket"
+	type = string
+	default = "arn:aws:s3:::my-terra-data-upload/*"
+}
+
+variable "dynamo_arn" {
+	description = "This is arn for the dynamodb"
+	type = string
+	default = "arn:aws:dynamodb:us-east-1:906502061897:table/json-data-format"
 }
