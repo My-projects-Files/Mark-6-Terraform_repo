@@ -15,12 +15,20 @@ def lambda_handler(event, context):
         response = s3.get_object(Bucket=bucket, Key=key)
         content = response['Body'].read().decode('utf-8')
         data = json.loads(content)
+        
+        # if it is a list
+        if isinstancce(data,list):
+            for item in data:
+                item['id'] = str(uuid.uuid4())
+                table.put_item(Item=item)
 
-        # Add unique ID (partition key for DynamoDB)
-        data['id'] = str(uuid.uuid4())
+        else:
 
-        # Put item into DynamoDB
-        table.put_item(Item=data)
+            # Add s3 object key (filename) as unique
+            data['id'] = str(uuid.uuid4())
+
+            # Put item into DynamoDB
+            table.put_item(Item=data)
 
     return {
         'statusCode': 200,
