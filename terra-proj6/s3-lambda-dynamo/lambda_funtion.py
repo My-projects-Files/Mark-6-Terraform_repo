@@ -17,7 +17,7 @@ def lambda_handler(event, context):
         data = json.loads(content)
         
         # if it is a list
-        if isinstancce(data,list):
+        if isinstance(data,list):
             for item in data:
                 item['id'] = str(uuid.uuid4())
                 table.put_item(Item=item)
