@@ -1,4 +1,4 @@
-# Mark-6
+# Mark-6-Terraform. Contributions are welcome.
 This is to understand terraform
 ## To update to latest veersion of terraform we need to install tfenv. we run this if the alredy installed and in old version.
 ~~~
