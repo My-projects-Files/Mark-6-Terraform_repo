@@ -78,3 +78,6 @@ terraform {
  }
 }
 ~~~
+
+## Vault – Identity-Based Secrets Management
+HashiCorp Vault is a secrets management tool that securely stores and controls access to sensitive data like API keys, passwords, certificates, and database credentials. It also supports identity-based access and dynamic secrets.
