@@ -78,3 +78,39 @@ terraform {
  }
 }
 ~~~
+
+## Vault – Identity-Based Secrets Management
+HashiCorp Vault is a secrets management tool that securely stores and controls access to sensitive data like API keys, passwords, certificates, and database credentials. It also supports identity-based access and dynamic secrets.
+
+### Secret Sprawl
+
+It happens when sensitive info like API Keys, Passwords, ets is accidentally spread across multiple files, services ,(or) env often without notice.
+
+The two huge problems with "secret sprawl"
+ - **No visibility** ---> Where the cread stored & who has access to it.
+ - **Secret Rotation** ---> As the secrets stored is unknown so its makes the rotation of secrets challenging.
+
+### Purpose of Vaulting
+
+They offer centralized platform to manage all secrets, & Provide a secure storage solution, protecting them from unauthorized access. They keep secrets as encryption at rest, so they are stored in secure, encrypted form. they also encrypt data in transit, so they are encrypted even when transmitted over a network.
+
+1) **Fine-grained access control**: Grant (Or) Forbit access to centain secrets and operation.
+
+2) **Audit and compliance**: Detailed logs of access and changes to secrets. it help organizations meet regulatory compliance required by tracking access to sensitive info.
+
+3) **Dynamic Secrets** : These are secrets that are generated on-demand and they are short lived, automatic expiration, and limited scope. They are the opposite of static secrets, which are long-lived & manually managed.
+4) **Encryption as a service** : We can use vault for encryption and decrpting our data. it handles the complexities of encryption key generation, storage, and lifecycle management.
+
+
+### Architecture of Vault:
+
+- In the center, we have core which has the capabilities to process all requests & Manages the flow of requests.
+
+- To talk to it, we have vault API, all communication between the client & Vault are done through API.
+
+- Secret Engines handles components, which stores, generate (Or) encrypt data. Each secret engine handles different type of secrets.
+
+     - Key/Value stores are generic and are used to store arbitrary secrets.
+
+- Authorization methods perform authentication and are responsible for assigning identity and a set of policies to a user. it is used to authenticate, so we can access vault.
+
