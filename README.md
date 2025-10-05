@@ -114,3 +114,10 @@ They offer centralized platform to manage all secrets, & Provide a secure storag
 
 - Authorization methods perform authentication and are responsible for assigning identity and a set of policies to a user. it is used to authenticate, so we can access vault.
 
+### Commands:
+
+Vault CLI command that enables a secrets engine for managing AWS dynamic credentials.
+
+    # Here the mount path name is set as aws and the aws specifies the type of the secrets engine to be enabled
+    
+      vault secrets enable -path=aws aws
