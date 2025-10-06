@@ -11,3 +11,12 @@
         export AWS_ACCESS_KEY_ID= "ASRWD..."
         export AWS_SECRET_ACCESS_KEY= "mwiwshy...."
   
+## Details
+
+- To view the lease duration of the vault role for aws we can use.
+
+          vault read aws/creds/terraform-role
+- To revoke the keys for all the created roles we can use
+
+        vault lease revoke -prefix aws/creds/terraform-role/
+  
