@@ -11,7 +11,9 @@ source ~/.bashrc
 tfenv install latest
 tfenv use latest
 ~~~
- 
+## Strecture
+- **Resource** --> in terraform we use resource for crearing the resource inside the provider.
+- **Data** --> we use it for reading (or) getting information from resources, we use data.
 ## Project-1 
 we are creating a aws instance using terraform (local file),in this our state file is stored in locally
 So we have to store them remotely(remote file) which is a best practice. so we will create S3 bucket (to store the state file) and dynamicdb (state lock)
